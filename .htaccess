@@ -207,3 +207,13 @@
 ## http://developer.yahoo.com/performance/rules.html#etags
 
     #FileETag none
+
+#SetEnvIf Host www\.magef\.local MAGE_RUN_CODE=wine_us
+#SetEnvIf Host www\.magef\.local MAGE_RUN_TYPE=website
+#SetEnvIf Host ^magef\.local MAGE_RUN_CODE=wine_us
+#SetEnvIf Host ^magef\.local MAGE_RUN_TYPE=website
+
+SetEnvIf Host www\.mageb\.local MAGE_RUN_CODE=base
+SetEnvIf Host www\.mageb\.local MAGE_RUN_TYPE=website
+SetEnvIf Host ^mageb\.local MAGE_RUN_CODE=base
+SetEnvIf Host ^mageb\.local MAGE_RUN_TYPE=website
