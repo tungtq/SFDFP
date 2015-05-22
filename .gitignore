@@ -1,0 +1,40 @@
+# magento db config #
+####################
+app/etc/local.xml
+
+# magento folder #
+#####################
+media/*
+downloader/*
+var/*
+!var/.htaccess
+!var/backup/*
+
+# wordpress #
+#############
+wordpress/wp-content/uploads/*
+wordpress/wp-config.php
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# PhpStorm file #
+.idea/
+
+# Template hint extension files #
+app/code/community/aoe/*
+app/etc/modules/Aoe_TemplateHints.xml
+skin/frontend/base/default/aoe_templatehints/*
+
+# eclipse file #
+##############
+.buildpath
+.project
+.settings/*
+
+n98-magerun.phar
+skin/frontend/ultimo/default/css/_config/*
