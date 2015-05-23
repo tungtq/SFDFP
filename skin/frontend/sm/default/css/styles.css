@@ -1294,7 +1294,6 @@ a.button:hover {
   position: relative;
   max-width: 1260px;
   margin: 0 auto;
-  padding: 15px;
 }
 .main-container:after,
 .footer-container:after {
@@ -2625,12 +2624,7 @@ textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  border: 1px solid silver;
+  border: 1px solid black;
   background: #FFFFFF;
   font-size: 15px;
 }
@@ -3201,8 +3195,22 @@ body {
   float: left;
   margin-right: 10px;
 }
-.header-language-background .welcome-msg {
-  float: right;
+.header-welcome{
+    width: 100%;
+    background-color: #8dbabf ;
+    padding: 5px;
+}
+.header-welcome .welcome-msg {
+  text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 770px) {
+    .header-welcome .welcome-msg{
+        font-size: 10px;
+    }
 }
 
 .page-header-container .store-language-container {
@@ -3238,23 +3246,20 @@ body {
 /* ============================================ *
  * Logo
  * ============================================ */
-.logo {
-  display: block;
-  float: left;
-  width: 65%;
-  min-width: 100px;
-  min-height: 44px;
-  text-align: center;
-  padding: 10px;
-}
+
 .logo img {
   max-width: 100%;
 }
-.logo .small {
-  display: block;
-}
+
 .logo .large {
   display: none;
+}
+
+.logo .small {
+    display: block;
+    float: left;
+    width: 48%;
+    padding: 1%;
 }
 
 .logo:hover {
@@ -3277,10 +3282,8 @@ body {
  * Skip Links
  * ============================================ */
 .skip-links {
-  clear: both;
-  overflow: hidden;
-  border-top: 1px solid #EDEDED;
-  border-bottom: 1px solid #EDEDED;
+    clear: both;
+    overflow: hidden;
 }
 
 @media only screen and (min-width: 771px) {
@@ -3294,7 +3297,6 @@ body {
 .skip-link {
   position: relative;
   float: left;
-  width: 20%;
   height: 44px;
   background: #FFFFFF;
   color: #636363;
@@ -3311,19 +3313,17 @@ a.skip-link {
 }
 
 @media only screen and (max-width: 770px) {
-  .skip-link {
-    border-right: 1px solid #EDEDED;
-  }
+    .skip-links {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
 
-  .skip-link:last-child {
-    border-right: 0;
-  }
+    .skip-link:last-child {
+        border-right: 0;
+    }
 }
-@media only screen and (min-width: 500px) {
-  .skip-link {
-    width: 25%;
-  }
-}
+
 /* -------------------------------------------- *
  * Skip Link - Active
  */
@@ -3407,21 +3407,23 @@ a.skip-link {
   }
 }
 .account-cart-wrapper {
-  position: absolute;
-  top: 0px;
-  right: 0px;
+    float: left;
+    display: inline-block;
 }
 @media only screen and (max-width: 770px) {
   .account-cart-wrapper {
     position: static;
   }
+    .header-left-warpper{
+        display: none;
+    }
 }
 
 /* ============================================ *
  * Nav - Skip Link
  * ============================================ */
 .skip-nav {
-  width: 40%;
+  width: 25%;
 }
 .skip-nav:not(.skip-active):hover {
   text-decoration: none;
@@ -3651,16 +3653,12 @@ a.skip-link {
  * Search - Skip Content
  * ============================================ */
 #header-search {
-  padding: 20px;
+  padding: 10px;
 }
 
 @media only screen and (min-width: 771px) {
   #header-search {
     display: block;
-    position: absolute;
-    top: 55px;
-    right: 0;
-    width: 25%;
     height: 50px;
     padding: 0;
   }
@@ -3739,16 +3737,6 @@ a.skip-link {
     text-transform: uppercase;
   }
 
-  #header-account.skip-active {
-    background: #FBFBFB;
-    border: solid 1px #cccccc;
-    display: block;
-    position: absolute;
-    z-index: 200;
-    top: 40px;
-    right: 115px;
-    width: 200px;
-  }
 
   #header-account a {
     display: block;
@@ -3786,11 +3774,15 @@ a.skip-link {
 /* -------------------------------------------- *
  * Skip Link - Cart
  */
-.skip-cart:not(.skip-active):hover .icon {
+.skip-cart:not(.skip-active):hover .icon, .skip-wishlist:not(.skip-active):hover .icon {
   background-position: -50px -95px;
 }
-.skip-cart .icon {
+.skip-cart .icon, .skip-wishlist .icon {
   background-position: 0px -95px;
+}
+
+.skip-link .icon.fa {
+    line-height: 1.5em;
 }
 
 @media only screen and (min-width: 771px) {
@@ -3838,9 +3830,10 @@ a.skip-link {
   color: white;
 }
 
-.skip-cart.no-count .count {
+.skip-cart.no-count .count, .skip-wishlist.no-count .count {
   display: none;
 }
+
 
 @media only screen and (max-width: 499px) {
   .skip-cart .count {
@@ -8804,15 +8797,14 @@ div.paypal-logo span > img {
   position: relative;
   display: block;
   width: 100%;
-  margin: 10px 0;
-  border: 1px solid #ededed;
+  margin: 1px 0;
 }
 .slideshow-container .slideshow {
   width: 100%;
   padding: 0;
   position: relative;
   margin: 0;
-  border: 10px solid #FFFFFF;
+  /*border: 10px solid #FFFFFF;*/
 }
 .slideshow-container .slideshow > li {
   position: absolute;
@@ -9565,7 +9557,7 @@ div.paypal-logo span > img {
   border-bottom: none;
 }
 .search-autocomplete:before {
-  content: '';
+  /*content: '';*/
   position: absolute;
   width: 0;
   height: 0;
@@ -10597,3 +10589,68 @@ div.calendar table td.button {
   color: inherit;
   text-transform: none;
 }
+
+@media only screen and (min-width: 771px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+.clear-fix{
+    clear: both;
+}
+.header-left-wrapper, .header-center-wrapper, .header-right-wrapper, .store-location-wrapper{
+    float: left;
+    display: inline-block;
+}
+
+.header-left-wrapper > div{
+    padding-right: 40px;
+}
+
+.header-left-warpper{
+    width: 25%;
+}
+
+.header-right-wrapper{
+    width: 25%;
+}
+
+.header-center-wrapper{
+    width: 50%;
+}
+
+.skip-wishlist{
+    background: #ffffff none repeat scroll 0 0;
+    color: #636363;
+    float: left;
+    height: 44px;
+    line-height: 42px;
+    position: relative;
+    text-align: center;
+}
+.skip-wishlist .icon{
+    width: 30px;
+    height: 30px;
+}
+.skip-links #header-search{
+    display: none;
+}
+.header-right{
+    padding-left: 40px;
+    display: inline;
+}
+@media only screen and (max-width: 770px){
+    .header-left-wrapper{
+        display: none;
+    }
+
+    .skip-wishlist .label{
+        display: none;
+    }
+    .skip-links #header-search{
+        display: block;
+    }
+
+}
+

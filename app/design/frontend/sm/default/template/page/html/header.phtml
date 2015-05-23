@@ -28,56 +28,79 @@
  */
 ?>
 
-<div class="header-language-background">
-    <div class="header-language-container">
-        <div class="store-language-container">
-            <?php echo $this->getChildHtml('store_language') ?>
-        </div>
-
-        <?php echo $this->getChildHtml('currency_switcher') ?>
-
-        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
-    </div>
+<div class="header-welcome">
+    <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 </div>
 
 <header id="header" class="page-header">
     <div class="page-header-container">
-        <a class="logo" href="<?php echo $this->getUrl('') ?>">
-            <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
-            <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
-        </a>
+        <div class="header-left-wrapper">
+            <div class="store-location-wrapper">
+                <a class="skip-link skip-store-locator"
+                   href="<?php Mage::getUrl('store/locator') ?>"><?php echo $this->__('Store Locator') ?></a>
+            </div>
+            <div class="account-cart-wrapper">
+                <?php if ($customer = Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                    <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>"
+                       data-target-element="#header-account" class="skip-link skip-account">
+                        <span class="icon"></span>
+                        <span class="label"><?php echo $this->__('Account'); ?></span>
+                    </a>
+                    <div id="header-account" class="skip-content">
+                        <?php echo $this->getChildHtml('topLinks') ?>
+                    </div>
+                <?php else: ?>
+                    <?php $cusHelper = Mage::helper('customer') ?>
+                    <a class="skip-link" href="<?php echo $cusHelper->getLoginUrl() ?>"><?php echo $cusHelper->__('Sign in') ?></a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="header-center-wrapper">
+            <a class="logo large" href="<?php echo $this->getUrl('') ?>">
+                <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
+            </a>
+        </div>
 
         <?php // In order for the language switcher to display next to logo on smaller viewports, it will be moved here.
               // See app.js for details ?>
-        <div class="store-language-container"></div>
+<!--        <div class="store-language-container"></div>-->
+        <div class="header-right-wrapper">
+            <!-- Search -->
+            <div id="header-search" class="skip-content">
+                <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
 
-        <!-- Skip Links -->
-
-        <div class="skip-links">
-            <a href="#header-nav" class="skip-link skip-nav">
-                <span class="icon"></span>
-                <span class="label"><?php echo $this->__('Menu'); ?></span>
-            </a>
-
-            <a href="#header-search" class="skip-link skip-search">
-                <span class="icon"></span>
-                <span class="label"><?php echo $this->__('Search'); ?></span>
-            </a>
-
-            <div class="account-cart-wrapper">
-                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
+            <div class="skip-links">
+                <a href="#header-nav" class="skip-link skip-nav">
                     <span class="icon"></span>
-                    <span class="label"><?php echo $this->__('Account'); ?></span>
+                    <span class="label"><?php echo $this->__('Menu'); ?></span>
+                </a>
+                <a class="logo small" href="<?php echo $this->getUrl('') ?>">
+                    <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
                 </a>
 
-                <!-- Cart -->
+                <!-- Wishlist -->
+                <div class="header-right header-wishlist">
 
-                <div class="header-minicart">
+                    <!-- Replace with block after-->
+                    <a class="skip-wishlist  no-count" href="<?php echo Mage::helper('wishlist')->getListUrl() ?>">
+                        <span class="icon fa fa-heart-o fa-lg"></span>
+                        <span class="label">Wishlist</span>
+                        <span class="count">0</span>
+                    </a>
+                </div>
+                <!-- Cart -->
+                <div class="header-right header-minicart">
                     <?php echo $this->getChildHtml('minicart_head'); ?>
                 </div>
             </div>
+        </div>
 
-
+        <div class="clear-fix"></div>
+        <div class="skip-links">
+            <div id="header-search">
+                <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
         </div>
 
         <!-- Navigation -->
@@ -86,17 +109,7 @@
             <?php echo $this->getChildHtml('topMenu') ?>
         </div>
 
-        <!-- Search -->
 
-        <div id="header-search" class="skip-content">
-            <?php echo $this->getChildHtml('topSearch') ?>
-        </div>
-
-        <!-- Account -->
-
-        <div id="header-account" class="skip-content">
-            <?php echo $this->getChildHtml('topLinks') ?>
-        </div>
     </div>
 </header>
 

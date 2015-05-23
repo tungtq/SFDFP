@@ -28,9 +28,7 @@
 /* -------------------------------------------- *
  * Primary Banner
  */
-body.cms-home .main-container {
-  padding-top: 20px;
-}
+
 body.cms-home .slideshow-container {
   margin-top: 0;
 }
@@ -99,11 +97,10 @@ body.cms-home .slideshow-container {
 
 /* Specifying the body only in order to override the .std ul li styling */
 body .promos > li {
-  margin: 0 0 10px 0;
+  margin: 0 0 1px 0;
   list-style: none;
   text-align: center;
   position: relative;
-  border: 1px solid #cccccc;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -157,8 +154,9 @@ body .promos > li {
   /* Config: Three columns + flexible gutter */
   body .promos > li {
     float: left;
-    width: 31.74603%;
-    margin-right: 2.38095%;
+    width: 32.667%;
+    margin-right: 1%;
+      margin-bottom: 1%;
   }
 
   .promos > li:nth-child(3n) {
