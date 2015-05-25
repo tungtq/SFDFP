@@ -24,10 +24,48 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="footer-container">
-    <div class="footer">
-        <?php echo $this->getChildHtml() ?>
-        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>
-        <address><?php echo $this->getCopyright() ?></address>
+<!--<div class="footer-container">-->
+<!--    <div class="footer">-->
+<!--        --><?php //echo $this->getChildHtml() ?>
+<!--    </div>-->
+<!--</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-xs-12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_offer_text')->toHtml();?></div>
+        <div class="col-sm-4 col-xs-12"><?php echo $this->getChildHtml('footer.newsletter') ?></div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-6 follow-text"><?php echo $this->__('Follow our journey');  ?></div>
+                    <div class="col-xs-8 col-sm-6"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_social')->toHtml();?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="col-sm-4 col-xs-12">
+            <li class="footer-link-left"><a href="#"><?php echo $this->__('Delivery & Return'); ?></a></li>
+            <li class="footer-link-left"><a href="#"><?php echo $this->__('About us'); ?></a></li>
+            <li class="footer-link-left"><a href="#"><?php echo $this->__('Contact us'); ?></a></li>
+            <li class="footer-link-left"><a href="#"><?php echo $this->__('Store locator'); ?></a></li>
+        </ul>
+        <ul class="col-sm-2 col-xs-12 pull-right">
+            <li class="footer-link-right"><a href="#"><?php echo $this->__('Privacy'); ?></a></li>
+            <li class="footer-link-right last"><a href="#"><?php echo $this->__("T&C's"); ?></a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_copyright')->toHtml();?></div>
+        <div class="col-sm-4 pull-right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_payment_logo')->toHtml();?></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_reserved')->toHtml();?></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
