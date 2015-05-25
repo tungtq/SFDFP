@@ -361,3 +361,25 @@ body .promos > li {
         display: none;
     }
 }
+
+/*News container*/
+
+.news-container {
+    list-style: none;
+}
+
+.news-container li {
+    float: left;
+    list-style: outside none none;
+    text-align: center;
+    width: 31%;
+}
+
+.news-container li:first-child{
+    margin-left: 0;
+}
+
+.circle{
+    border-radius: 50%;
+    margin: 0 auto;
+}

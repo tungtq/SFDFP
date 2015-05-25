@@ -1,0 +1,5 @@
+2 Websites.
+Wine Republic (default store) url: magef.local
+Madison island (magento base) url: mageb.local
+       
+Db name: magento_frontend
