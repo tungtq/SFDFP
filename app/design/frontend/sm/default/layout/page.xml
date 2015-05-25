@@ -105,7 +105,7 @@
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
                 <block type="page/html_welcome" name="welcome" as="welcome"/>
-                <block type="core/template" name="top.nav.links" template="page/html/top-navlinks.phtml" />
+                <block type="core/template" name="top.nav.links" template="page/html/navlinks.phtml" />
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>

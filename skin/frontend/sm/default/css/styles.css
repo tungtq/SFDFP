@@ -3276,6 +3276,7 @@ body {
   }
   .logo .large {
     display: block;
+      margin: 0 auto;
   }
 }
 /* ============================================ *
@@ -3302,6 +3303,7 @@ body {
   color: #636363;
   line-height: 42px;
   text-align: center;
+    text-transform: uppercase;
 }
 
 a.skip-link {
@@ -3406,7 +3408,7 @@ a.skip-link {
     text-decoration: none;
   }
 }
-.account-cart-wrapper {
+.account-cart-wrapper, .store-location-wrapper {
     float: left;
     display: inline-block;
 }
@@ -3653,14 +3655,14 @@ a.skip-link {
  * Search - Skip Content
  * ============================================ */
 #header-search {
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 
 @media only screen and (min-width: 771px) {
   #header-search {
     display: block;
     height: 50px;
-    padding: 0;
+    padding: 5px;
   }
 }
 /* ============================================ *
@@ -9249,9 +9251,7 @@ div.paypal-logo span > img {
 /* ============================================ *
  * Checkout - Mini cart
  * ============================================ */
-.header-minicart {
-  display: inline-block;
-}
+
 @media only screen and (max-width: 770px) {
   .header-minicart {
     display: block;
@@ -10590,35 +10590,20 @@ div.calendar table td.button {
   text-transform: none;
 }
 
+.clear-fix{
+    clear: both;
+}
+
 @media only screen and (min-width: 771px) {
     .mobile-only {
         display: none;
     }
 }
 
-.clear-fix{
-    clear: both;
-}
-.header-left-wrapper, .header-center-wrapper, .header-right-wrapper, .store-location-wrapper{
-    float: left;
-    display: inline-block;
-}
-
-.header-left-wrapper > div{
+.header-left-wrapper  div{
     padding-right: 40px;
 }
 
-.header-left-warpper{
-    width: 25%;
-}
-
-.header-right-wrapper{
-    width: 25%;
-}
-
-.header-center-wrapper{
-    width: 50%;
-}
 
 .skip-wishlist{
     background: #ffffff none repeat scroll 0 0;
@@ -10633,12 +10618,19 @@ div.calendar table td.button {
     width: 30px;
     height: 30px;
 }
+.skip-wishlist .count:before{
+    content: '(';
+}
+.skip-wishlist .count:after{
+    content: ')';
+}
+
 .skip-links #header-search{
     display: none;
 }
-.header-right{
-    padding-left: 40px;
-    display: inline;
+
+.content-nav-links{
+    display: none;
 }
 @media only screen and (max-width: 770px){
     .header-left-wrapper{
@@ -10652,5 +10644,60 @@ div.calendar table td.button {
         display: block;
     }
 
+    .content-nav-links{
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .store-location-wrapper, .account-cart-wrapper{
+        float: right;
+        display: block;
+        width: 47%;
+        border: 1px solid black;
+        margin-left: 2%
+    }
+
+    .store-location-wrapper{
+        margin-right: 2%;
+    }
+    .content-nav-links .skip-link{
+        width: 100%;
+    }
 }
 
+@media only screen and (min-width: 771px){
+    .header-right{
+        display: block;
+        padding-left: 40px;
+    }
+
+    .header-left-wrapper{
+        width: 25%;
+        float: left;
+        display: inline-block;
+        position: relative;
+        top: 75px;
+    }
+
+    .header-right-wrapper{
+        width: 25%;
+        float: right;
+        display: inline-block;
+        position: relative;
+        top: 30px;
+    }
+
+    .header-center-wrapper{
+        width: 50%;
+        float: none;
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .skip-wishlist .icon, .skip-cart .icon{
+        display: none;
+    }
+}

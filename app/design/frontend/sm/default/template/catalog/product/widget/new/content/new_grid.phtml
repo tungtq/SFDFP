@@ -33,7 +33,7 @@
         <?php echo $this->getPagerHtml() ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
         <?php $i=0; ?>
-        <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col-widget">
+        <ul class="products-grid <?php echo $uniqueId ?> products-grid--max-<?php echo $_columnCount; ?>-col-widget">
             <?php foreach ($_products->getItems() as $_product): ?>
                 <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                     <?php $_imgSize = 210; ?>
@@ -66,28 +66,4 @@
         </ul>
     </div>
 </div>
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.products-grid').slick({
-                infinite: true,
-                speed: 300,
-                slidesToShow: 5,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 4
-                        }
-                    },
-                    {
-                        breakpoint: 770,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    }
-                    ]
-            });
-        });
-    </script>
 <?php endif; ?>

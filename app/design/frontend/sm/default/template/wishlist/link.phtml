@@ -24,27 +24,13 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
-/**
- * Shoping cart sidebar
- *
- * @see Mage_Checkout_Block_Cart_Sidebar
- */
-
 ?>
-
-<?php
-    $_cartQty = $this->getSummaryCount();
-    if(empty($_cartQty)) {
-        $_cartQty = 0;
-    }
-?>
-
-<a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
-    <span class="icon"></span>
-    <span class="label"><?php echo $this->__('My Shopping bag'); ?></span>
-    <span class="count"><?php echo $_cartQty; ?></span>
-</a>
-
-<div id="header-cart" class="block block-cart skip-content">
-    <?php echo $this->getChildHtml('minicart_content');?>
-</div>
+<?php $helper = Mage::helper('wishlist') ?>
+<?php if ($helper->isAllow()) : ?>
+    <?php $count = $helper->getItemCount() ? $helper->getItemCount() : 0 ?>
+        <a class="skip-link skip-wishlist  <?php echo $count ? '' : 'no-count' ?>" href="<?php echo $helper->getListUrl() ?>">
+            <span class="icon fa fa-heart-o fa-lg"></span>
+            <span class="label"><?php echo $this->__('Favorites') ?></span>
+            <span class="count"><?php echo $count ?></span>
+        </a>
+<?php endif ?>

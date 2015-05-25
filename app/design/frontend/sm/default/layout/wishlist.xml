@@ -38,6 +38,10 @@ Default layout, loads most of the pages
             <action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
         </reference>
 
+        <reference name="header">
+            <block type="core/template" name="header.wishlist" template="wishlist/link.phtml" />
+        </reference>
+
         <!-- Mage_Wishlist -->
         <reference name="right">
             <block type="wishlist/customer_sidebar" name="wishlist_sidebar" as="wishlist" after="cart_sidebar" template="wishlist/sidebar.phtml" />

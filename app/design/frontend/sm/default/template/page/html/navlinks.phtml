@@ -23,28 +23,30 @@
  * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-
-/**
- * Shoping cart sidebar
- *
- * @see Mage_Checkout_Block_Cart_Sidebar
- */
-
 ?>
-
 <?php
-    $_cartQty = $this->getSummaryCount();
-    if(empty($_cartQty)) {
-        $_cartQty = 0;
-    }
+/**
+ * Top navigation
+ *
+ */
 ?>
 
-<a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
-    <span class="icon"></span>
-    <span class="label"><?php echo $this->__('My Shopping bag'); ?></span>
-    <span class="count"><?php echo $_cartQty; ?></span>
-</a>
-
-<div id="header-cart" class="block block-cart skip-content">
-    <?php echo $this->getChildHtml('minicart_content');?>
+<div class="store-location-wrapper">
+    <a class="skip-link skip-store-locator"
+       href="<?php Mage::getUrl('store/locator') ?>"><?php echo $this->__('Store Locator') ?></a>
+</div>
+<div class="account-cart-wrapper">
+    <?php if ($customer = Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+        <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>"
+           data-target-element="#header-account" class="skip-link skip-account">
+            <span class="icon"></span>
+            <span class="label"><?php echo $this->__('Account'); ?></span>
+        </a>
+        <div id="header-account" class="skip-content">
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+    <?php else: ?>
+        <?php $cusHelper = Mage::helper('customer') ?>
+        <a class="skip-link" href="<?php echo $cusHelper->getLoginUrl() ?>"><?php echo $cusHelper->__('Sign in') ?></a>
+    <?php endif; ?>
 </div>

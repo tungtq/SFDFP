@@ -35,25 +35,7 @@
 <header id="header" class="page-header">
     <div class="page-header-container">
         <div class="header-left-wrapper">
-            <div class="store-location-wrapper">
-                <a class="skip-link skip-store-locator"
-                   href="<?php Mage::getUrl('store/locator') ?>"><?php echo $this->__('Store Locator') ?></a>
-            </div>
-            <div class="account-cart-wrapper">
-                <?php if ($customer = Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-                    <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>"
-                       data-target-element="#header-account" class="skip-link skip-account">
-                        <span class="icon"></span>
-                        <span class="label"><?php echo $this->__('Account'); ?></span>
-                    </a>
-                    <div id="header-account" class="skip-content">
-                        <?php echo $this->getChildHtml('topLinks') ?>
-                    </div>
-                <?php else: ?>
-                    <?php $cusHelper = Mage::helper('customer') ?>
-                    <a class="skip-link" href="<?php echo $cusHelper->getLoginUrl() ?>"><?php echo $cusHelper->__('Sign in') ?></a>
-                <?php endif; ?>
-            </div>
+            <?php echo $this->getChildHtml('top.nav.links') ?>
         </div>
         <div class="header-center-wrapper">
             <a class="logo large" href="<?php echo $this->getUrl('') ?>">
@@ -72,7 +54,7 @@
 
             <div class="skip-links">
                 <a href="#header-nav" class="skip-link skip-nav">
-                    <span class="icon"></span>
+                    <span class="icon fa-"></span>
                     <span class="label"><?php echo $this->__('Menu'); ?></span>
                 </a>
                 <a class="logo small" href="<?php echo $this->getUrl('') ?>">
@@ -83,9 +65,9 @@
                 <div class="header-right header-wishlist">
 
                     <!-- Replace with block after-->
-                    <a class="skip-wishlist  no-count" href="<?php echo Mage::helper('wishlist')->getListUrl() ?>">
+                    <a class="skip-link skip-wishlist  no-count" href="<?php echo Mage::helper('wishlist')->getListUrl() ?>">
                         <span class="icon fa fa-heart-o fa-lg"></span>
-                        <span class="label">Wishlist</span>
+                        <span class="label"><?php echo $this->__('Favorites') ?></span>
                         <span class="count">0</span>
                     </a>
                 </div>
