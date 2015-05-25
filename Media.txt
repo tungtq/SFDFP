@@ -4,4 +4,4 @@ Madison island (magento base) url: mageb.local
        
 Db name: magento_frontend
 
-DB + Media: \\192.168.0.100\Shared\==USERS\HungPV\Read Me.txt
+DB + Media: \\192.168.0.100\Shared\==USERS\HungPV\Media-DB.txt
