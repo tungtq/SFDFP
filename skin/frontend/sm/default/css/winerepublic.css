@@ -123,17 +123,37 @@ body .promos > li {
   display: block;
 }
 
+.promos p {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+    width: 60%;
+    top: 40%;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+    text-shadow: 1px 1px 3px #555555;
+    left: 20%;
+    line-height: 1em;
+}
+
+.promos p.slitter{
+
+}
+
 .promos span {
   color: #FFFFFF;
   text-transform: uppercase;
   position: absolute;
   display: block;
   width: 100%;
-  top: 10%;
+  top: 70%;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 12px;
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
   text-shadow: 1px 1px 3px #555555;
+    margin: 0 auto;
 }
 
 .promos strong {
@@ -144,7 +164,7 @@ body .promos > li {
 
 @media only screen and (min-width: 771px) {
   .promos span {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .promos strong {
@@ -165,7 +185,7 @@ body .promos > li {
 }
 @media only screen and (min-width: 880px) {
   .promos span {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .promos strong {
@@ -350,6 +370,7 @@ body .promos > li {
 
 .full-banner{
     display: block;
+    margin-bottom: 10px;
 }
 
 .full-banner img{
@@ -362,7 +383,27 @@ body .promos > li {
     }
 }
 
+/*Nav links*/
+.content-nav-links{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
 /*News container*/
+
+.news-wrapper {
+    clear: both;
+    display: none;
+    height: 460px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 771px) {
+    .news-wrapper{
+        display: block;
+    }
+}
 
 .news-container {
     list-style: none;
@@ -382,4 +423,36 @@ body .promos > li {
 .circle{
     border-radius: 50%;
     margin: 0 auto;
+}
+
+/*Our producers*/
+
+.our-producers-wrapper{
+    border-top: 1px solid #cccccc;
+}
+.our-producers-wrapper .title{
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    background-color: #FFF;
+    position: relative;
+    bottom: 12px;
+    font-weight: bold;
+}
+
+.our-producers-wrapper ul {
+    list-style: none;
+}
+
+.our-producers-wrapper ul li{
+    float: left;
+    border: 1px solid #cccccc;
+    margin-left: 1em;
+    width: 289px;
+    height: 140px;
+    margin-bottom: 1em;
+}
+
+.our-producers-wrapper ul > li:first-child, .our-producers-wrapper ul> li:nth-child(4n+1){
+    margin-left: 0;
 }
