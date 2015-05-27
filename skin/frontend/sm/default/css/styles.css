@@ -4008,9 +4008,8 @@ a.skip-link {
   color: #3399cc;
 }
 .footer .block-subscribe {
-  float: right;
+  float: left;
   width: 320px;
-  margin-bottom: 30px;
 }
 .footer .links,
 .footer .block-subscribe {
@@ -10700,5 +10699,11 @@ div.calendar table td.button {
     .skip-wishlist .icon, .skip-cart .icon{
         display: none;
     }
+}
+
+.block-subscribe .block-title{
+    float: left;
+    font-weight: bold;
+    font-size: 14px;
 }
 

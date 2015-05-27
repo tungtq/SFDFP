@@ -26,7 +26,7 @@
 ?>
 <div class="block block-subscribe">
     <div class="block-title">
-        <strong><span><?php echo $this->__('Newsletter') ?></span></strong>
+        <strong><span><?php echo $this->__('Be the first to hear about special offers & events') ?></span></strong>
     </div>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
@@ -34,10 +34,13 @@
                 <label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
             </div>
             <div class="input-box">
-               <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+               <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter"
+                      title="<?php echo $this->__('Enter your email address') ?>"
+                      placeholder="<?php echo $this->__('Enter your email address') ?>"
+                      class="input-text required-entry validate-email" />
             </div>
             <div class="actions">
-                <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+                <button type="submit" title="<?php echo $this->__('Sign Up') ?>" class="button"><span><span><?php echo $this->__('Sign Up') ?></span></span></button>
             </div>
         </div>
     </form>

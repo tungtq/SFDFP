@@ -26,7 +26,11 @@
 ?>
 <div class="footer-container">
     <div class="footer">
-        <?php echo $this->getChildHtml() ?>
+        <div class="before-footer-menu">
+            <?php echo $this->getChildHtml('newsletter') ?>
+            <?php echo $this->getChildHtml('cms_footer_links_sm') ?>
+        </div>
+<!--        --><?php //echo $this->getChildHtml() ?>
         <address class="copyright"><?php echo $this->getCopyright() ?></address>
     </div>
 </div>
