@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Werd_Layoutelements>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Werd_Layoutelements>
+    </modules>
+</config>

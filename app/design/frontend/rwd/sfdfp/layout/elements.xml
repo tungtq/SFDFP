@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <js>lib/jquery/jquery.jcarousel.js</js>
+            </action>
+            <action method="addJs">
+                <js>lib/jquery/jquery.tabslet.js</js>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <js>css/custom.css</js>
+            </action>
+        </reference>
+        <reference name="wishlist_link">
+            <action method="setTemplate">
+                <template>page/html/wishlist_block.phtml</template>
+            </action>
+        </reference>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getAccountUrl"></url>
+            </action>
+            <remove name="checkout_cart_link"/>
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+            <action method="removeLinkByUrl">
+                <url helper="customer/getRegisterUrl"></url>
+            </action>
+            <block type="checkout/links" name="checkout_cart_link_custom">
+                <action method="addCartLink"></action>
+            </block>
+        </reference>
+        <reference name="header">
+            <block type="page/template_links" name="top.links.left" as="topLinksLeft">
+                <action method="setTemplate">
+                    <template>page/template/links.phtml</template>
+                </action>
+                <action method="addLink" translate="label title" module="customer">
+                    <label>Store locator</label>
+                    <url helper="customer/getRegisterUrl"/>
+                    <title>Store locator</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>0</position>
+                </action>
+                <action method="addLink" translate="label title" module="customer">
+                    <label>Sign In</label>
+                    <url helper="customer/getLoginUrl"/>
+                    <title>Sign In</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>100</position>
+                </action>
+            </block>
+        </reference>
+    </default>
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+        </reference>
+    </customer_logged_out>
+    <custom_homepage_handle>
+        <reference name="content">
+            <block type="core/template" name="ultra-slider" template="homepage/slider.phtml">
+                <block type="cms/block" name="block_slide">
+                    <action method="setBlockId">
+                        <block_id>block_slide</block_id>
+                    </action>
+                </block>
+            </block>
+            <block type="cms/block" name="media_tile">
+                <action method="setBlockId">
+                    <block_id>media_tile</block_id>
+                </action>
+            </block>
+            <block type="core/template" name="product-tab-list" template="product/tabList.phtml">
+                <block type="core/template" name="list-item" template="product/tabList/list.phtml">
+                </block>
+            </block>
+            <block type="cms/block" name="promo_banner">
+                <action method="setBlockId">
+                    <block_id>promo_banner</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="feature_tile">
+                <action method="setBlockId">
+                    <block_id>feature_tile</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="producers">
+                <action method="setBlockId">
+                    <block_id>producers</block_id>
+                </action>
+            </block>
+        </reference>
+        <reference name="footer">
+            <action method="unsetChildren"/>
+            <block type="core/template" name="newsletter-form" template="newsletter/subscribe.phtml">
+                <block type="cms/block" name="social_sharing">
+                    <action method="setBlockId">
+                        <block_id>social_sharing</block_id>
+                    </action>
+                </block>
+            </block>
+            <block type="cms/block" name="footer_links">
+                <action method="setBlockId">
+                    <block_id>footer_links</block_id>
+                </action>
+            </block>
+        </reference>
+    </custom_homepage_handle>
+</layout>

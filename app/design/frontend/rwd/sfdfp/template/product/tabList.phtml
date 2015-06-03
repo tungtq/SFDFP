@@ -1,0 +1,130 @@
+<style>
+    .recently-jcarousel {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /*
+    This is the container of the carousel items.
+    You must ensure that the position is relative or absolute and
+    that the width is big enough to contain all items.
+    */
+    .recently-jcarousel ol {
+        width: 20000em;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*
+    These are the item elements. jCarousel works best, if the items
+    have a fixed width and height (but it's not required).
+    */
+    .recently-jcarousel li {
+        float: left;
+    }
+</style>
+<div class="tabs tabs_default">
+    <ul class="horizontal">
+        <li class=""><a href="#tab-1">Red Wine</a></li>
+        <li class=""><a href="#tab-2">White Wine</a></li>
+        <li class=""><a href="#tab-3">Champagne & Sparkling</a></li>
+        <li class=""><a href="#tab-4">Beer & Cider</a></li>
+        <li class=""><a href="#tab-5">Wishky & Spirits</a></li>
+    </ul>
+    <div id="tab-1"><?php echo $this->getChildHtml('list-item')?></div>
+    <div id="tab-2"><span>Tab 2</span></div>
+    <div id="tab-3"><?php echo $this->getChildHtml('list-item')?></div>
+    <div id="tab-4"><span>Tab 2</span></div>
+    <div id="tab-5"><?php echo $this->getChildHtml('list-item')?></div>
+</div>
+<script>
+    function productListCarousel(carousel, next, prev, target, item, desktop, tablet, mobile) {
+        initCarousel(carousel, item, desktop, tablet, mobile, next, prev);
+        carousel.jcarousel({
+
+        });
+        prev.jcarouselControl({
+            target: '-=' + target,
+            carousel: carousel
+        });
+
+        next.jcarouselControl({
+            target: '+=' + target,
+            carousel: carousel
+        });
+
+        next.on('jcarouselcontrol:active', function () {
+            //  next.removeClass('deactive');
+        });
+        prev.on('jcarouselcontrol:active', function () {
+            //  prev.removeClass('deactive');
+        });
+        next.on('jcarouselcontrol:inactive', function () {
+            //  next.addClass('deactive');
+        });
+        prev.on('jcarouselcontrol:inactive', function () {
+            //  prev.addClass('deactive');
+        });
+        carousel.on('jcarousel:reload', function () {
+            initCarousel(carousel, item, desktop, tablet, mobile, next, prev);
+        });
+    }
+
+    function initCarousel(carousel, item, desktop, tablet, mobile, next, prev) {
+        var element = carousel;
+        var widthContainer = element.innerWidth();
+        var width = item.innerWidth();
+        if (window.innerWidth <= 767) {
+            var marginWidth = (widthContainer - width * mobile) / (mobile * 2);
+            element.find('li').css('width', widthContainer / mobile);
+            var itemCount = carousel.find('li').length;
+            if (itemCount <= mobile) {
+                next.hide();
+                prev.hide();
+                carousel.addClass('recently-center');
+            } else {
+                next.show();
+                prev.show();
+                carousel.removeClass('recently-center');
+            }
+        } else if (767 < window.innerWidth && window.innerWidth < 1167) {
+            var marginWidth = (widthContainer - width * tablet) / (tablet * 2);
+            element.find('li').css('width', widthContainer / tablet);
+            var itemCount = carousel.find('li').length;
+            if (itemCount <= tablet) {
+                next.hide();
+                prev.hide();
+                carousel.addClass('recently-center');
+            } else {
+                next.show();
+                prev.show();
+                carousel.removeClass('recently-center');
+            }
+        } else if (window.innerWidth >= 1167) {
+            var marginWidth = (widthContainer - width * desktop) / (desktop * 2);
+            element.find('li').css('width', widthContainer / desktop);
+            var itemCount = carousel.find('li').length;
+            if (itemCount <= desktop) {
+                next.hide();
+                prev.hide();
+                carousel.addClass('recently-center');
+
+            } else {
+                next.show();
+                prev.show();
+                carousel.removeClass('recently-center');
+            }
+        }
+
+    }
+
+
+</script>
+<script>
+    jQuery(document).ready(function () {
+        productListCarousel(jQuery('.recently-jcarousel'), jQuery('.recently-jcarousel-next'), jQuery('.recently-jcarousel-prev'), 1, jQuery('.recently-jcarousel-item').find('.lookbook-item'), 5, 3, 2);
+        jQuery('.tabs').tabslet();
+    })
+</script>

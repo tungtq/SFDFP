@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "verlag-black";
+    src: url(verlag-black-webfont.woff2);
+}
+.container {
+    max-width: 1200px;
+    width: 96%;
+    margin: auto;
+
+}
+.header-language-background {
+    background: rgb(149, 184, 188);
+    text-transform: uppercase;
+    font-size: 14pt;
+    font-weight: bold
+}
+
+.header-language-background p {
+    text-align: center;
+    font-family: "verlag-black", sans-serif;
+    color: #FFFFFF;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header-left{
+    width: 31.33%;
+    float: left;
+    margin-top: 96px;
+}
+
+.header-left .links li,.header-right .links li {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+    display: inline-block;
+    position: relative;
+    z-index: 6;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+.header-right .links li.first {
+    margin-right: 49px;
+}
+.links ul li{
+    display: inline-block;
+}
+
+.header-center{
+
+}
+.header-right{
+    text-align: right;
+    display: block;
+    margin-bottom: 14px;
+    margin-top: 42px;
+    width: 31.33%;
+    float: right;
+}
+.page-title{
+    display: none;
+}
+.the-slideshow .slide-background{
+    background:#666666;
+    width: 100%;
+    height: 100%;
+}
+
+.jcarousel-prev {
+    background-image: url('../images/sprite.png');
+    background-position: 0 -118px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    height: 22px;
+    width: 25px;
+}
+.jcarousel-next {
+    background-image: url('../images/sprite.png');
+    background-position: 0 -144px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    height: 22px;
+    width: 25px;
+}
+
+#nav li a{
+     line-height: 24px;
+     font-family: "verlag-black", sans-serif;
+     text-transform: uppercase;
+     height: 21px;
+     border-left: solid 1px #CCCCCC;
+     border-right: solid 1px transparent;
+     margin: 11px 0px 12px;
+     padding: 0 21px;
+     display: block;
+     font-size: 12px;
+    color: #000000;
+ }
+
+#nav li.first a{
+    border-left: none;
+}
+
+#header-search #search_mini_form .search-button > span {
+    background-image: url('../images/sprite.png');
+    background-position: 0 -303px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    height: 25px;
+    width: 23px;
+    margin-left: -8px;
+}
